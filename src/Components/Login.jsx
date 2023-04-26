@@ -17,7 +17,12 @@ const Login = () => {
 
     setSuccess("User has create SuccessFully");
 
-    signInWithEmailAndPassword(auth, email, password);
+    signInWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        setSuccess("User login Successfully");
+      })
+      .catch((error) => {});
   };
   return (
     <div className="mt-5 w-25 mx-auto">
