@@ -1,12 +1,21 @@
-import React from "react";
+import { getAuth } from "firebase/auth";
+import React, { useState } from "react";
+import app from "../firebase.config";
+
+const auth = getAuth(app);
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    setSuccess("User has create SuccessFully");
   };
   return (
     <div className="mt-5 w-25 mx-auto">
@@ -46,6 +55,7 @@ const Login = () => {
           Submit
         </button>
       </form>
+      <p className="text-success">{success}</p>
     </div>
   );
 };
