@@ -1,4 +1,4 @@
-import { getAuth } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import app from "../firebase.config";
 
@@ -16,6 +16,8 @@ const Login = () => {
     console.log(email, password);
 
     setSuccess("User has create SuccessFully");
+
+    signInWithEmailAndPassword(auth, email, password);
   };
   return (
     <div className="mt-5 w-25 mx-auto">
