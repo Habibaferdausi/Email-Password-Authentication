@@ -1,16 +1,24 @@
 import React from "react";
 
 const Login = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+  };
   return (
     <div className="mt-5 w-25 mx-auto">
-      <h1 className="text-primary mb-4">Please Login</h1>
-      <form className="text-center ">
+      <h1 className="text-primary text-center mb-4">Please Login</h1>
+      <form onSubmit={handleLogin} className="text-center ">
         <div className="form-group">
           <label htmlFor="email">Email address</label>
           <input
             type="email"
             className="form-control"
             id="email"
+            name="email"
             aria-describedby="emailHelp"
             placeholder="Enter email"
           />
@@ -24,6 +32,7 @@ const Login = () => {
             type="password"
             className="form-control"
             id="password"
+            name="password"
             placeholder="Password"
           />
         </div>
