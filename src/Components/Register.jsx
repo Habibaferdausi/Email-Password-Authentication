@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import app from "../firebase.config";
+import { Link } from "react-router-dom";
 
 const auth = getAuth(app);
 
@@ -66,6 +67,11 @@ const Register = () => {
           className="mt-2  btn btn-primary"
         />
       </form>
+      <p>
+        <small>
+          Already Registered? <Link to="/login"></Link>
+        </small>
+      </p>
       <p className="text-success mt-3">{success}</p>
     </div>
   );
