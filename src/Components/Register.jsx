@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import app from "../firebase.config";
 
 const auth = getAuth(app);
 
 const Register = () => {
   const [email, setEmail] = useState("");
+  const [success, setSuccess] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -16,6 +18,8 @@ const Register = () => {
       .then((result) => {
         // Signed in
         const loggedUser = result.user;
+        event.target.reset();
+        setSuccess("User has create SuccessFully");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -44,6 +48,7 @@ const Register = () => {
           id="email"
           className="mb-2 mt-3"
           placeholder="Enter Your email"
+          required
         />
         <br></br>
         <input
@@ -52,6 +57,7 @@ const Register = () => {
           name="password"
           id="password"
           placeholder="Enter Your Password"
+          required
         />
         <br />
         <input
@@ -60,6 +66,7 @@ const Register = () => {
           className="mt-2  btn btn-primary"
         />
       </form>
+      <p className="text-success mt-3">{success}</p>
     </div>
   );
 };
