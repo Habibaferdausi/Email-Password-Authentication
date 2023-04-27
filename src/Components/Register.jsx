@@ -69,7 +69,7 @@ const Register = () => {
       </form>
       <p>
         <small>
-          Already Registered? <Link to="/login"></Link>
+          Already Have an account? <Link to="/login">Login Here</Link>
         </small>
       </p>
       <p className="text-success mt-3">{success}</p>

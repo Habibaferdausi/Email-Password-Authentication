@@ -16,8 +16,6 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
 
-    setSuccess("User has create SuccessFully");
-
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const loggedUser = result.user;
@@ -65,7 +63,7 @@ const Login = () => {
       </form>
       <p>
         <small>
-          New to Website? please Register <Link to="/register"></Link>
+          New to Website? <Link to="/register">please Register</Link>
         </small>
       </p>
       <p className="text-success">{success}</p>
